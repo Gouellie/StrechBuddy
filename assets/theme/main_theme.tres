@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3m0y7v75p3p0"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c3m0y7v75p3p0"]
 
 [ext_resource type="FontFile" uid="uid://cxdcnnnnmk8ls" path="res://assets/theme/fonts/FredokaOne-Regular.ttf" id="1_fok7j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3clbc"]
+bg_color = Color(0.207843, 0.670588, 0.737255, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [resource]
 default_font = ExtResource("1_fok7j")
+Panel/styles/panel = SubResource("StyleBoxFlat_3clbc")

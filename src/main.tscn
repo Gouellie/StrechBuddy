@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bolwxt1wparuf"]
+[gd_scene load_steps=4 format=3 uid="uid://bolwxt1wparuf"]
 
 [ext_resource type="Theme" uid="uid://c3m0y7v75p3p0" path="res://assets/theme/main_theme.tres" id="1_65dra"]
+[ext_resource type="Script" path="res://src/main.gd" id="1_hnbr0"]
+[ext_resource type="PackedScene" uid="uid://d0fa583087q88" path="res://src/ui/global_timer_ui.tscn" id="2_u6crt"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hnbr0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -27,14 +30,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_65dra")
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="Margin/VBoxContainer"]
 layout_mode = 2
@@ -42,27 +45,24 @@ theme_override_font_sizes/font_size = 60
 text = "Strech Buddy"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Margin/VBoxContainer"]
+[node name="GlobalTimerUI" parent="Margin/VBoxContainer" instance=ExtResource("2_u6crt")]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.733333, 0.913725, 0.968627, 1)
+size_flags_stretch_ratio = 4.0
 
-[node name="ColorRect2" type="ColorRect" parent="Margin/VBoxContainer"]
+[node name="Button_Countdown" type="Button" parent="Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.733333, 0.913725, 0.968627, 1)
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
+text = "Countdown"
 
-[node name="ColorRect3" type="ColorRect" parent="Margin/VBoxContainer"]
+[node name="Button_Stopwatch" type="Button" parent="Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.733333, 0.913725, 0.968627, 1)
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
+text = "Stopwatch"
 
-[node name="ColorRect4" type="ColorRect" parent="Margin/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(0.733333, 0.913725, 0.968627, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Margin/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(0.733333, 0.913725, 0.968627, 1)
+[connection signal="pressed" from="Margin/VBoxContainer/Button_Countdown" to="." method="_on_button_countdown_pressed"]
+[connection signal="pressed" from="Margin/VBoxContainer/Button_Stopwatch" to="." method="_on_button_stopwatch_pressed"]
