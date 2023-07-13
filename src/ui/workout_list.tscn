@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmhnm0lryf7qh"]
+
+[ext_resource type="Theme" uid="uid://c3m0y7v75p3p0" path="res://assets/theme/main_theme.tres" id="1_71wmr"]
+[ext_resource type="Script" path="res://src/ui/workout_list.gd" id="1_kjy87"]
+[ext_resource type="PackedScene" uid="uid://cm5p7c1b40iy7" path="res://src/ui/stretch_entry.tscn" id="2_i6cmv"]
+
+[node name="WorkoutList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjy87")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.176471, 0.192157, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_71wmr")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Strech Buddy"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Margin/VBoxContainer"]
+layout_mode = 2
+text = "ADD"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Entries" type="VBoxContainer" parent="Margin/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StretchEntry" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+layout_mode = 2
+
+[node name="StretchEntry2" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+layout_mode = 2
+
+[node name="StretchEntry3" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+layout_mode = 2
+
+[node name="StretchEntry4" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Margin/VBoxContainer"]
+layout_mode = 2
+max_length = 18
+
+[node name="Button_Back" type="Button" parent="Margin/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="Margin/VBoxContainer/Button_Back" to="." method="_on_button_back_pressed"]

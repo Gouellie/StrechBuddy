@@ -13,14 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hnbr0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.458824, 0.670588, 0.635294, 1)
+color = Color(0.192157, 0.176471, 0.192157, 1)
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -64,5 +64,13 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 60
 text = "Stopwatch"
 
+[node name="Button_EditWorkout" type="Button" parent="Margin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
+text = "Edit workout"
+
 [connection signal="pressed" from="Margin/VBoxContainer/Button_Countdown" to="." method="_on_button_countdown_pressed"]
 [connection signal="pressed" from="Margin/VBoxContainer/Button_Stopwatch" to="." method="_on_button_stopwatch_pressed"]
+[connection signal="pressed" from="Margin/VBoxContainer/Button_EditWorkout" to="." method="_on_button_edit_workout_pressed"]

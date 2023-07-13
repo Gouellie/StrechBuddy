@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c41q48fjf0nsd"]
+
+[ext_resource type="Script" path="res://src/autoloads/audio_manager.gd" id="1_ln3pi"]
+[ext_resource type="AudioStream" uid="uid://c800hrb2ub7r1" path="res://assets/audio/click_003.ogg" id="2_jch8c"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ln3pi")
+
+[node name="TickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jch8c")
