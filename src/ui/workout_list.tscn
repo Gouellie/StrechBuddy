@@ -23,64 +23,68 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.192157, 0.176471, 0.192157, 1)
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_71wmr")
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Margin/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Margin/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Strech Buddy"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Margin/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/Margin/VBoxContainer"]
 layout_mode = 2
 text = "ADD"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Entries" type="VBoxContainer" parent="Margin/VBoxContainer/ScrollContainer"]
+[node name="Entries" type="VBoxContainer" parent="VBoxContainer/Margin/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StretchEntry" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+[node name="StretchEntry" parent="VBoxContainer/Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
 layout_mode = 2
 
-[node name="StretchEntry2" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+[node name="StretchEntry2" parent="VBoxContainer/Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
 layout_mode = 2
 
-[node name="StretchEntry3" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+[node name="StretchEntry3" parent="VBoxContainer/Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
 layout_mode = 2
 
-[node name="StretchEntry4" parent="Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
+[node name="StretchEntry4" parent="VBoxContainer/Margin/VBoxContainer/ScrollContainer/Entries" instance=ExtResource("2_i6cmv")]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="Margin/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Margin/VBoxContainer"]
 layout_mode = 2
 max_length = 18
 
-[node name="Button_Back" type="Button" parent="Margin/VBoxContainer"]
+[node name="Button_Back" type="Button" parent="VBoxContainer/Margin/VBoxContainer"]
 layout_mode = 2
 text = "BACK"
 
-[node name="OnscreenKeyboard" type="PanelContainer" parent="Margin/VBoxContainer"]
+[node name="OnscreenKeyboard" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("4_a6mkc")
 
-[connection signal="pressed" from="Margin/VBoxContainer/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Margin/VBoxContainer/Button_Back" to="." method="_on_button_back_pressed"]
