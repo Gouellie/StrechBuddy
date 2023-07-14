@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://c3m0y7v75p3p0" path="res://assets/theme/main_theme.tres" id="1_71wmr"]
 [ext_resource type="Script" path="res://src/ui/workout_list.gd" id="1_kjy87"]
 [ext_resource type="PackedScene" uid="uid://cm5p7c1b40iy7" path="res://src/ui/stretch_entry.tscn" id="2_i6cmv"]
-[ext_resource type="Script" path="res://addons/Godot-4-Onscreen-Keyboard/addons/onscreenkeyboard/onscreen_keyboard.gd" id="4_uqy2d"]
+[ext_resource type="Script" path="res://addons/onscreen-keyboard/addons/onscreenkeyboard/onscreen_keyboard.gd" id="4_a6mkc"]
 
 [node name="WorkoutList" type="Control"]
 layout_mode = 3
@@ -79,16 +79,8 @@ max_length = 18
 layout_mode = 2
 text = "BACK"
 
-[node name="OnscreenKeyboard" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -136.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 8
-script = ExtResource("4_uqy2d")
+[node name="OnscreenKeyboard" type="PanelContainer" parent="Margin/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_a6mkc")
 
 [connection signal="pressed" from="Margin/VBoxContainer/Button_Back" to="." method="_on_button_back_pressed"]
