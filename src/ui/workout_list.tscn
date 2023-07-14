@@ -85,6 +85,8 @@ text = "BACK"
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 script = ExtResource("4_a6mkc")
 
 [connection signal="pressed" from="VBoxContainer/Margin/VBoxContainer/Button_Back" to="." method="_on_button_back_pressed"]
